@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
-import Header from './header'
+import { Button, Layout, Row, Col } from 'antd';
+
+import HeaderNav from './header'
 import './App.less';
+
+const { Header, Footer, Sider, Content } = Layout;
 
 class App extends Component {
   render() {
     return (
       <div className="app-container">
-        <header>
-          <div className="title">
-            地林伟业网络办公系统
-          </div>
-          <Header />
-          <div>用户</div>
-        </header>
-        {this.props.children}
-        {/* <div className="footer">
-          @地林伟业
-        </div> */}
+        <Layout>
+          <Header>
+            <Row>
+              <Col span={6} className="title">地林伟业网络办公系统</Col>
+              <Col span={12}><HeaderNav /></Col>
+              <Col span={6}>用户</Col>
+            </Row>
+          </Header>
+          <Content>
+            {this.props.children}
+          </Content>
+          <Footer>
+
+          </Footer>
+        </Layout>
       </div>
     )
   }

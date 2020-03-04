@@ -23,10 +23,10 @@ class Meeting extends Component {
         <h1>会议记录</h1>
         <Tabs defaultActiveKey="1" size="small">
           <TabPane tab="公司内部会议" key="1">
-           <InterMeeting />
+            <InterMeeting />
           </TabPane>
           <TabPane tab="商务会议" key="2">
-           商务会议
+            商务会议
           </TabPane>
           <TabPane tab="会议室" key="3">
             会议室

@@ -2,7 +2,7 @@
  * 内部会议记录页面
 */
 import React, { Component } from 'react';
-import { Button, Form, DatePicker, Select, Input, Table } from 'antd';
+import { Button, Form, DatePicker, Select, Input, Table, Row, Col } from 'antd';
 import './index.less'
 
 const layout = {
@@ -116,60 +116,65 @@ class InterMeeting extends Component {
           <Button size="small">删除</Button>
         </div>
         <div className="meeting-list">
-          <div className="meeting-left">
-            <Form
-              {...layout}
-              size="small"
-            >
-              <Form.Item name="date-picker" label="开始日期" >
-                <DatePicker />
-              </Form.Item>
-              <Form.Item name="date-picker" label="结束日期" >
-                <DatePicker />
-              </Form.Item>
-              <Form.Item label="部门">
-                <Select>
-                  <Select.Option value="demo">Demo</Select.Option>
-                </Select>
-              </Form.Item>
-              <Form.Item label="项目">
-                <Select>
-                  <Select.Option value="demo">Demo</Select.Option>
-                </Select>
-              </Form.Item>
-              <Form.Item label="模块">
-                <Select>
-                  <Select.Option value="demo">Demo</Select.Option>
-                </Select>
-              </Form.Item>
-              <Form.Item label="参会人员">
-                <Select>
-                  <Select.Option value="demo">Demo</Select.Option>
-                </Select>
-              </Form.Item>
-              <Form.Item label="议会主题">
-                <Input />
-              </Form.Item>
-              <Form.Item label="会议类别">
-                <Select>
-                  <Select.Option value="demo">Demo</Select.Option>
-                </Select>
-              </Form.Item>
-              <Form.Item {...tailLayout}>
-                <Button type="primary" htmlType="submit">
-                  查询
+          <Row>
+            <Col span={4}>
+              <div className="meeting-left">
+                <Form
+                  {...layout}
+                  size="small"
+                >
+                  <Form.Item name="date-picker" label="开始日期" >
+                    <DatePicker />
+                  </Form.Item>
+                  <Form.Item name="date-picker" label="结束日期" >
+                    <DatePicker />
+                  </Form.Item>
+                  <Form.Item label="部门">
+                    <Select>
+                      <Select.Option value="demo">Demo</Select.Option>
+                    </Select>
+                  </Form.Item>
+                  <Form.Item label="项目">
+                    <Select>
+                      <Select.Option value="demo">Demo</Select.Option>
+                    </Select>
+                  </Form.Item>
+                  <Form.Item label="模块">
+                    <Select>
+                      <Select.Option value="demo">Demo</Select.Option>
+                    </Select>
+                  </Form.Item>
+                  <Form.Item label="参会人员">
+                    <Select>
+                      <Select.Option value="demo">Demo</Select.Option>
+                    </Select>
+                  </Form.Item>
+                  <Form.Item label="议会主题">
+                    <Input />
+                  </Form.Item>
+                  <Form.Item label="会议类别">
+                    <Select>
+                      <Select.Option value="demo">Demo</Select.Option>
+                    </Select>
+                  </Form.Item>
+                  <Form.Item {...tailLayout}>
+                    <Button type="primary" htmlType="submit">
+                      查询
                 </Button>
-                <Button htmlType="button" onClick={this.onReset}>
-                  重置
+                    <Button htmlType="button" onClick={this.onReset}>
+                      重置
                 </Button>
-              </Form.Item>
-            </Form>
-          </div>
-          <div className="meeting-right">
-            <Table rowSelection={rowSelection} columns={columns} dataSource={data} size="small" scroll={{ x: 1300 }}/>
-          </div>
+                  </Form.Item>
+                </Form>
+              </div>
+            </Col>
+            <Col span={20}>
+              <div className="meeting-right">
+                <Table rowSelection={rowSelection} columns={columns} dataSource={data} size="small" scroll={{ x: 1300 }} />
+              </div>
+            </Col>
+          </Row>
         </div>
-
       </div >
     )
   }
