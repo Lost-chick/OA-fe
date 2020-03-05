@@ -1,25 +1,21 @@
 /* @import '~antd/dist/antd.css'; */
 .app-container {
-    header {
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        // border-bottom: 1px solid #f0f0f0;
-        .title {
-            font-size: 20px;
-            font-weight: 600;
-        }
+    .ant-layout-header,
+    .ant-layout-footer {
+        height: 46px;
+        line-height: 46px;
+        background: #fff;
     }
-    .footer {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 30px;
-        line-height: 30px;
+    .ant-layout-header {
         text-align: center;
-        margin-bottom: 0px;
-        background-color: #f0f0f0;
     }
+    .ant-layout-footer {
+        background-color: #fff;
+    }
+    .ant-layout-content {
+        background: #fff;
+        color: #fff;
+        min-height: calc(100vh - 102px);
+    }
+
 }

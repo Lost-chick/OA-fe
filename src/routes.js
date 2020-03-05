@@ -6,77 +6,79 @@ import App from './container/App';
 const delay = 250;
 const timeout = 10000
 function Loading() {
-    return (
-        <div>loading</div>
-    )
+  return (
+    <div>loading</div>
+  )
 };
 
 const routeMap = [
-    {
-        path: '/',
-        component: './container/home',
-        exact: true
-    },
-    {
-        path: '/meeting',
-        component: './container/meeting',
-        exact: true
-    }
+  {
+    path: '/',
+    component: './container/home',
+    exact: true
+  },
+  {
+    path: '/meeting',
+    component: './container/meeting',
+    exact: true
+  }
 ];
 
 const isAuth = () => {
-    const token = localStorage.getItem('token');
-    return true
+  const token = localStorage.getItem('token');
+  return true
 };
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route
-        {...rest}
-        render={(props) =>
-            isAuth ? (<Component {...props} />) : (<Redirect to="/login" />)
-        }>
+  <Route
+    {...rest}
+    render={(props) =>
+      isAuth
+        ? (<Component {...props} />)
+        : (<Redirect to="/login" />)
+    }>
 
-    </Route>
+  </Route>
 );
 
 export default () => (
 
-    <BrowserRouter>
-        <App>
-            <Switch>
-                {/* {
-                    routeMap.map((item, index) => {
-                        return <PrivateRoute key={index} path={item.path} exact={item.exact}
-                            component={
-                                Loadable({
-                                    loader: () => {
-                                        return import(`${item.component}`);
-                                    },
-                                    loading:Loading,
-                                    delay,
-                                    timeout
-                                })
-                            }
-                        />
-                    })
-                } */}
-                {
-                    routeMap.map((item, index) => {
-                        return <Route key={index} path={item.path} exact={item.exact}
-                            component={
-                                Loadable({
-                                    loader: () => {
-                                        return import(`${item.component}`);
-                                    },
-                                    loading: Loading,
-                                    delay,
-                                    timeout
-                                })
-                            }
-                        />
-                    })
-                }
-            </Switch>
-        </App>
-    </BrowserRouter>
+  <BrowserRouter>
+    <App>
+      <Switch>
+        {/* {
+              routeMap.map((item, index) => {
+                  return <PrivateRoute key={index} path={item.path} exact={item.exact}
+                      component={
+                          Loadable({
+                              loader: () => {
+                                  return import(`${item.component}`);
+                              },
+                              loading:Loading,
+                              delay,
+                              timeout
+                          })
+                      }
+                  />
+              })
+          } */}
+        {
+          routeMap.map((item, index) => {
+            return <Route key={index} path={item.path} exact={item.exact}
+              component={
+                Loadable({
+                  loader: () => {
+                    return import(`${item.component}`);
+                  },
+                  loading: Loading,
+                  delay,
+                  timeout
+                })
+              }
+            />
+          })
+        }
+      </Switch>
+    </App>
+  </BrowserRouter>
 )
