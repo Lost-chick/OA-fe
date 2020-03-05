@@ -21,31 +21,6 @@ const routeMap = [
     path: '/meeting',
     component: './container/meeting',
     exact: true
-  },
-  {
-    path: '/testA',
-    component: './container/testA',
-    exact: true
-  },
-  {
-    path: '/testB',
-    component: './container/testB',
-    exact: true
-  },
-  {
-    path: '/testC',
-    component: './container/testC',
-    exact: true
-  },
-  {
-    path: '/testD',
-    component: './container/testD',
-    exact: true
-  },
-  {
-    path: '/testE',
-    component: './container/testE',
-    exact: true
   }
 ];
 

@@ -10,14 +10,7 @@ const { TabPane } = Tabs;
 @inject('meetingStore')
 @observer
 class Meeting extends Component {
-  componentDidMount() {
-    const { meetingStore } = this.props;
-    meetingStore.getInterMeetingList();
-
-  }
   render() {
-    const { interMeetingList } = this.props.meetingStore;
-    // console.log(interMeetingList)
     return (
       <div className="meeting-container">
         <h1>会议记录</h1>
@@ -36,4 +29,5 @@ class Meeting extends Component {
     )
   }
 }
+
 export default Meeting
